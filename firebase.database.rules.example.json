@@ -1,0 +1,40 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "paludarium": {
+      "status": {
+        ".read": "auth != null && auth.uid === 'OWNER_UID'",
+        ".write": "auth != null && auth.token.device === true"
+      },
+      "settings": {
+        ".read": "auth != null && auth.uid === 'OWNER_UID'",
+        ".write": "auth != null && auth.token.device === true"
+      },
+      "history": {
+        ".read": "auth != null && auth.uid === 'OWNER_UID'",
+        ".write": "auth != null && auth.token.device === true"
+      },
+      "events": {
+        ".read": "auth != null && auth.uid === 'OWNER_UID'",
+        ".write": "auth != null && auth.token.device === true"
+      },
+      "commands": {
+        "pending": {
+          ".read": "auth != null && auth.token.device === true",
+          "$commandId": {
+            ".write": "auth != null && auth.uid === 'OWNER_UID' && !data.exists() && newData.child('issued_by').val() === auth.uid",
+            ".validate": "newData.child('command_id').val() === $commandId && newData.child('expires_at_ms').val() > now && newData.child('expires_at_ms').val() <= now + 120000 && newData.child('schema_version').val() === 1"
+          }
+        },
+        "acks": {
+          ".read": "auth != null && auth.uid === 'OWNER_UID'",
+          "$commandId": {
+            ".write": "auth != null && auth.token.device === true",
+            ".validate": "newData.child('command_id').val() === $commandId && (newData.child('status').val() === 'APPLIED' || newData.child('status').val() === 'REJECTED' || newData.child('status').val() === 'EXPIRED' || newData.child('status').val() === 'DUPLICATE' || newData.child('status').val() === 'ERROR')"
+          }
+        }
+      }
+    }
+  }
+}

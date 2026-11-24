@@ -1,11 +1,10 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { AuthProvider } from '@/providers/AuthProvider'
 import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Smart Paludarium — Control Center',
   description: 'Pusat pemantauan privat untuk ekosistem paludarium pintar. Telemetri ESP32, sensor DHT22, dan cuaca dalam satu dashboard.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
@@ -43,8 +42,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   )
