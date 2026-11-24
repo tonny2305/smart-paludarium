@@ -36,8 +36,8 @@ export function DashboardHome() {
       {dataState === 'error' && <ConnectionError>{error || 'Periksa koneksi dan aturan Firebase.'}</ConnectionError>}
       <PageHeading
         eyebrow="OVERVIEW · EKOSISTEM RUMAH"
-        title="Selamat datang kembali"
-        detail="Kondisi paludarium Anda, sekilas."
+        title="Kondisi paludarium"
+        detail="Pantau sensor dan perangkat tanpa perlu login."
         trailing={<div className={`health-pill ${health}`}><span className="health-pulse" />{healthText[health]}<span className="health-divider" />{formatRelativeUpdate(getDeviceTimestamp(status), now)}</div>}
       />
       <section className="hero-card">

@@ -28,9 +28,9 @@ export function SetupScreen() {
           {open && <div className="setup-env">
             <strong>Tambahkan variabel di `.env.local`</strong>
             <p>Salin dari `.env.example`, lalu isi nilainya dari Firebase Console → Project settings → General → Your apps.</p>
-            <p className="setup-env-note">Aktifkan Email/Password dan batasi Realtime Database ke akun pemilik. Jangan gunakan public read/write.</p>
+            <p className="setup-env-note">Aktifkan Email/Password. Data monitoring bersifat publik; hanya akun pemilik yang dapat mengirim perintah kontrol.</p>
           </div>}
-          <div className="setup-note"><ShieldCheck size={15} /><span>Data hanya dapat diakses setelah autentikasi Firebase berhasil.</span></div>
+          <div className="setup-note"><ShieldCheck size={15} /><span>Akses kontrol memerlukan autentikasi Firebase.</span></div>
         </div>
       </div>
       <div className="setup-footer"><span>SMART PALUDARIUM <b>·</b> V1.0</span><span>LOCAL AUTOMATION REMAINS INDEPENDENT</span></div>

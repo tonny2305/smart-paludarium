@@ -12,10 +12,10 @@ export default function LoginPage() {
   const { user, loading } = useAuth()
 
   useEffect(() => {
-    if (!loading && user) router.replace('/')
+    if (!loading && user) router.replace('/control')
   }, [loading, user, router])
 
   if (!firebaseConfigured) return <SetupScreen />
-  if (loading || user) return <main className="auth-loading" role="status">Menyiapkan koneksi aman…</main>
+  if (loading || user) return <main className="auth-loading" role="status">Menyiapkan akses kontrol…</main>
   return <LoginForm />
 }

@@ -60,3 +60,15 @@ test('invalid history samples are ignored and missing hours are not synthesized'
   assert.equal(normalizeDhtHistoryPoint('2026-11-24', '12', { temperature_c: 28, humidity_percent: 101 }), null)
   assert.deepEqual(getJakartaDateKeys(Date.UTC(2026, 10, 23, 16), Date.UTC(2026, 10, 24, 3)), ['2026-11-23', '2026-11-24'])
 })
+
+test('Firebase rules expose monitoring reads but keep writes and commands protected', async () => {
+  const rules = JSON.parse(await readFile(new URL('../firebase.database.rules.example.json', import.meta.url), 'utf8')).rules
+  const device = rules.paludarium
+  assert.equal(rules['.read'], false)
+  for (const section of ['status', 'settings', 'history', 'events']) {
+    assert.equal(device[section]['.read'], true)
+    assert.equal(device[section]['.write'], "auth != null && auth.token.device === true")
+  }
+  assert.equal(device.commands.pending['.read'], "auth != null && auth.token.device === true")
+  assert.equal(device.commands.acks['.read'], "auth != null && auth.uid === 'OWNER_UID'")
+})

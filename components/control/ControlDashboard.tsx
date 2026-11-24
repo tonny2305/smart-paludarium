@@ -146,7 +146,7 @@ export function ControlDashboard() {
       <div className="control-grid">
         <article className="panel control-card">
           <div className="control-card-top"><span className="icon-tile"><Fan size={18} /></span><span className="mode-tag">{fanMode || '—'}</span></div>
-          <span className="eyebrow">SIRKULASI UDARA</span><h2>Fan Control</h2>
+          <span className="eyebrow">SIRKULASI UDARA</span><h2>Kontrol kipas</h2>
           <div className="control-current"><span>Status saat ini</span><strong className={status?.fan?.on ? 'state-on' : ''}><span className="status-dot" />{status?.fan?.on === undefined ? 'Belum diketahui' : status.fan.on ? 'ON' : 'OFF'}</strong></div>
           <div className="schedule-display"><span>Jadwal otomatis</span><strong>{status?.fan?.start_hour != null && status.fan.end_hour != null ? `${String(status.fan.start_hour).padStart(2, '0')}:00 → ${String(status.fan.end_hour).padStart(2, '0')}:00` : 'Belum tersedia'}</strong></div>
           {cloudControlAvailable
@@ -162,7 +162,7 @@ export function ControlDashboard() {
         </article>
         <article className={`panel control-card pump-control-card${pumpIsRunning ? ' active-pump' : ''}`}>
           <div className="control-card-top"><span className="icon-tile blue-tile"><Droplets size={18} /></span><span className="mode-tag">{pumpMode || '—'}</span></div>
-          <span className="eyebrow">PENGISIAN AIR</span><h2>Refill Pump</h2>
+          <span className="eyebrow">PENGISIAN AIR</span><h2>Pompa pengisian</h2>
           <div className="control-current"><span>Status saat ini</span><strong className={pumpIsRunning ? 'state-on' : ''}><span className="status-dot" />{status?.pump?.on === undefined ? 'Belum diketahui' : pumpIsRunning ? 'POMPA BERJALAN' : 'OFF · SIAGA'}</strong></div>
           <div className="schedule-display"><span>Jadwal AUTO</span><strong>{status?.pump?.auto_hour != null ? `${String(status.pump.auto_hour).padStart(2, '0')}:${String(status.pump.auto_minute ?? 0).padStart(2, '0')} WIB · ${status.pump.auto_seconds ?? '—'} dtk` : 'Belum tersedia'}</strong></div>
           {cloudControlAvailable

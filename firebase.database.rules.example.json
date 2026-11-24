@@ -4,19 +4,19 @@
     ".write": false,
     "paludarium": {
       "status": {
-        ".read": "auth != null && auth.uid === 'OWNER_UID'",
+        ".read": true,
         ".write": "auth != null && auth.token.device === true"
       },
       "settings": {
-        ".read": "auth != null && auth.uid === 'OWNER_UID'",
+        ".read": true,
         ".write": "auth != null && auth.token.device === true"
       },
       "history": {
-        ".read": "auth != null && auth.uid === 'OWNER_UID'",
+        ".read": true,
         ".write": "auth != null && auth.token.device === true"
       },
       "events": {
-        ".read": "auth != null && auth.uid === 'OWNER_UID'",
+        ".read": true,
         ".write": "auth != null && auth.token.device === true"
       },
       "commands": {

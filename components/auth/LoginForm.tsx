@@ -2,7 +2,8 @@
 
 import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { AlertTriangle, ArrowRight, Leaf, LoaderCircle, LockKeyhole } from 'lucide-react'
+import Link from 'next/link'
+import { AlertTriangle, ArrowLeft, ArrowRight, Leaf, LoaderCircle, LockKeyhole } from 'lucide-react'
 import { useAuth } from '@/providers/AuthProvider'
 
 export function LoginForm() {
@@ -19,7 +20,7 @@ export function LoginForm() {
     setBusy(true)
     try {
       await login(email.trim(), password)
-      router.replace('/')
+      router.replace('/control')
     } catch (reason) {
       const code = typeof reason === 'object' && reason !== null && 'code' in reason
         ? String(reason.code)
@@ -40,7 +41,7 @@ export function LoginForm() {
       <div className="login-side">
         <div className="brand-lockup"><span className="brand-mark"><Leaf size={20} /></span><span><strong>paludarium</strong><small>CONTROL CENTER</small></span></div>
         <div className="login-form-wrap">
-          <span className="eyebrow">PRIVATE ACCESS</span><h1>Selamat datang.</h1><p>Masuk untuk memantau ekosistem paludarium Anda.</p>
+          <span className="eyebrow">AKSES PEMILIK</span><h1>Kontrol perangkat.</h1><p>Dashboard dan riwayat bisa dilihat tanpa login. Masuk untuk mengubah perangkat.</p>
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
             <input id="email" type="email" autoComplete="username" required value={email} onChange={event => setEmail(event.target.value)} placeholder="nama@email.com" />
@@ -52,6 +53,7 @@ export function LoginForm() {
             </button>
           </form>
           <div className="login-security"><LockKeyhole size={14} /><span>Akun dibuat oleh pemilik Firebase. Pendaftaran publik tidak tersedia.</span></div>
+          <Link className="login-back-link" href="/"><ArrowLeft size={16} /> Lihat dashboard tanpa login</Link>
         </div>
         <span className="login-copyright">SMART PALUDARIUM <b>·</b> ASIA/JAKARTA</span>
       </div>

@@ -79,9 +79,9 @@ Variabel `NEXT_PUBLIC_` tersedia di browser. Jangan masukkan service-account key
 2. Aktifkan **Authentication → Sign-in method → Email/Password**.
 3. Buat akun pemilik melalui **Authentication → Users**; tidak ada pendaftaran publik.
 4. Isi `.env.local` dengan konfigurasi Web App dan URL database yang benar.
-5. Batasi Realtime Database Rules ke pemilik terautentikasi. Jangan aktifkan public read/write.
+5. Terapkan `firebase.database.rules.example.json` setelah mengganti `OWNER_UID`. Monitoring (`status`, `settings`, `history`, `events`) dapat dibaca publik agar dashboard tanpa login berfungsi; penulisan monitoring dan akses kontrol tetap dibatasi.
 
-`firebase.database.rules.example.json` adalah template, bukan rules yang otomatis diterapkan. Ganti `OWNER_UID` sebelum menggunakannya. Autentikasi identitas ESP32 dengan custom claim adalah pekerjaan firmware V6.2; jangan anggap template langsung kompatibel dengan firmware V6.1.
+`firebase.database.rules.example.json` adalah template, bukan rules yang otomatis diterapkan. Pembacaan publik berarti siapa pun dapat melihat data monitoring; jangan simpan rahasia atau data pribadi pada node tersebut. Ganti `OWNER_UID` sebelum menggunakannya. Autentikasi identitas ESP32 dengan custom claim adalah pekerjaan firmware V6.2; jangan anggap template langsung kompatibel dengan firmware V6.1.
 
 ## Riwayat DHT22
 
@@ -100,6 +100,6 @@ Hubungkan repo GitHub ke Netlify dan isi environment variables yang sama di peng
 ## Keamanan
 
 - Jangan commit `.env.local` atau kredensial service account.
-- Aturan database harus menolak akses publik dan memberi izin seperlunya saja.
+- Data monitoring memang dapat dibaca publik; semua penulisan dan node perintah harus tetap terlindungi.
 - Frontend tidak mengubah Firebase Rules production.
 - STOP lock hanya dapat dilepas secara lokal oleh ESP32, bukan dari web.

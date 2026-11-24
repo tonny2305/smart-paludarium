@@ -3,7 +3,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { signOut } from 'firebase/auth'
 import { limitToLast, onValue, orderByKey, query, ref } from 'firebase/database'
-import { useAuth } from '@/providers/AuthProvider'
 import { deviceBasePath, firebaseAuth, firebaseDatabase } from '@/lib/firebase'
 import {
   normalizeEvents,
@@ -29,7 +28,6 @@ interface PaludariumContextValue {
 const PaludariumContext = createContext<PaludariumContextValue | null>(null)
 
 export function PaludariumProvider({ children }: { children: React.ReactNode }) {
-  const { user } = useAuth()
   const [status, setStatus] = useState<PaludariumStatus | null>(null)
   const [settings, setSettings] = useState<PaludariumSettings | null>(null)
   const [events, setEvents] = useState<PaludariumEvent[]>([])
@@ -55,12 +53,12 @@ export function PaludariumProvider({ children }: { children: React.ReactNode }) 
   }, [])
 
   useEffect(() => {
-    if (!user || !firebaseDatabase) {
+    if (!firebaseDatabase) {
       setStatus(null)
       setSettings(null)
       setEvents([])
-      setError(null)
-      setDataState('loading')
+      setError('Firebase belum dikonfigurasi. Isi variabel Firebase di .env.local.')
+      setDataState('error')
       return
     }
 
@@ -116,7 +114,7 @@ export function PaludariumProvider({ children }: { children: React.ReactNode }) 
       stopSettings()
       stopEvents()
     }
-  }, [user?.uid])
+  }, [])
 
   const value = useMemo(() => ({
     status,

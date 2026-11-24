@@ -214,6 +214,227 @@ button { color: inherit; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
 
 :focus-visible { outline: 2px solid #78d6a0; outline-offset: 3px; }
+
+body { font-family: "Segoe UI", "Inter", Arial, sans-serif; font-size: 16px; line-height: 1.5; }
+.sidebar { width: 248px; padding: 30px 18px 20px; }
+.main-area { margin-left: 248px; }
+.brand-mark { width: 42px; height: 42px; border-radius: 13px; }
+.brand-lockup strong { font-size: 18px; }
+.brand-lockup small { font-size: 10px; }
+.nav-caption { margin-top: 42px; font-size: 11px; }
+.nav-link { min-height: 49px; border-radius: 11px; font-size: 14px; }
+.connection-mini { min-height: 60px; }
+.connection-title, .connection-sub { font-size: 12px; }
+.user-chip { min-height: 58px; border-radius: 12px; }
+.avatar { width: 36px; height: 36px; font-size: 14px; }
+.user-copy strong { font-size: 12px; }
+.user-copy small { font-size: 11px; }
+.topbar { height: 64px; padding-right: 40px; padding-left: 40px; }
+.breadcrumb { font-size: 11px; }
+.breadcrumb strong { font-size: 14px; }
+.wib-clock { font-size: 12px; }
+.icon-button { width: 42px; height: 42px; border-radius: 11px; }
+.page-content { width: min(1280px, 100%); min-height: calc(100vh - 64px); padding: 38px 42px 24px; }
+.eyebrow { font-size: 11px; }
+.page-heading { min-height: 82px; margin-bottom: 25px; }
+.page-heading h1 { font-size: clamp(29px, 3vw, 38px); }
+.page-heading p { font-size: 15px; }
+.health-pill { min-height: 36px; padding: 0 13px; font-size: 12px; }
+.hero-card { min-height: 258px; border-radius: 18px; }
+.hero-copy { padding: 31px 34px 26px; }
+.hero-label { font-size: 11px; }
+.hero-state { padding: 4px 8px; font-size: 10px; }
+.hero-copy h2 { font-size: clamp(30px, 3.2vw, 40px); }
+.hero-copy > p { font-size: 15px; }
+.hero-facts { font-size: 14px; }
+.hero-meta { font-size: 10px; }
+.section-title-row { margin: 32px 0 15px; }
+.section-title-row h2 { font-size: 22px; }
+.section-aside { font-size: 12px; }
+.metrics-grid { gap: 14px; }
+.sensor-card { min-height: 178px; padding: 18px 17px 15px; border-radius: 15px; }
+.icon-tile { width: 38px; height: 38px; border-radius: 11px; }
+.card-kicker, .card-status { font-size: 11px; }
+.sensor-reading { margin-top: 20px; font-size: 36px; }
+.sensor-unit { font-size: 16px; }
+.sensor-secondary { font-size: 13px; }
+.sensor-footnote { min-height: 20px; margin-top: 13px; padding-top: 9px; font-size: 11px; }
+.home-lower { margin-top: 16px; gap: 14px; }
+.panel { border-radius: 15px; }
+.trend-panel, .activity-panel { min-height: 205px; padding: 19px 20px 15px; }
+.panel-heading h2 { font-size: 17px; }
+.panel-heading .eyebrow { font-size: 10px; }
+.text-link { min-height: 44px; font-size: 13px; }
+.chart-empty strong, .activity-empty strong { font-size: 14px; }
+.chart-empty p, .activity-empty > span { font-size: 12px; }
+.chart-baseline, .live-label { font-size: 11px; }
+.event-row { min-height: 48px; }
+.event-icon { width: 32px; height: 32px; }
+.event-copy strong { font-size: 13px; }
+.event-copy span, .event-row time { font-size: 11px; }
+.page-footer { min-height: 46px; font-size: 11px; }
+.page-footer > span:last-child { font-size: 10px; }
+.bottom-nav-link { min-height: 46px; font-size: 11px; }
+.control-disabled-banner { padding: 19px 20px; border-radius: 14px; }
+.control-disabled-banner strong { font-size: 15px; }
+.control-disabled-banner p { font-size: 13px; }
+.version-tag, .mode-tag { padding: 6px 10px; font-size: 10px; }
+.control-grid { gap: 16px; }
+.control-card { min-height: 250px; padding: 21px; }
+.control-card .eyebrow { font-size: 10px; }
+.control-card h2 { font-size: 21px; }
+.control-current, .schedule-display { font-size: 13px; }
+.control-current strong, .schedule-display strong { font-size: 13px; }
+.disabled-control { min-height: 46px; font-size: 12px; }
+.safety-note { padding: 15px 17px; border-radius: 12px; }
+.safety-note p { font-size: 13px; }
+.local-control-card { min-height: 68px; padding: 16px; border-radius: 13px; }
+.local-control-card strong, .local-control-card span:not(.local-icon) { font-size: 13px; }
+.button-row button, .control-form-row > button, .secondary-control, .pump-on-button, .pump-off-button { min-height: 46px; padding: 0 14px; border-radius: 10px; font-size: 13px; }
+.control-form-row { gap: 10px; }
+.control-form-row label { font-size: 12px; }
+.control-form-row input { min-height: 44px; font-size: 15px; }
+.command-result { padding: 14px 16px; font-size: 14px; }
+.data-source { min-height: 42px; font-size: 12px; }
+.history-summary { gap: 14px; }
+.summary-label, .history-stat-details { font-size: 11px; }
+.history-summary > .panel > strong { font-size: 29px; }
+.history-range button, .event-filters button { min-height: 42px; padding: 9px 13px; font-size: 12px; }
+.chart-legend { font-size: 11px; }
+.history-empty > strong { font-size: 16px; }
+.history-empty > p { font-size: 13px; }
+.history-empty-meta span { font-size: 9px; }
+.info-strip { padding: 14px 16px; font-size: 13px; }
+.device-card { min-height: 108px; padding: 19px; }
+.device-card h2 { font-size: 16px; }
+.device-card p, .device-health, .uptime-card > span:last-child { font-size: 12px; }
+.uptime-card > strong { font-size: 24px; }
+.details-panel { padding: 18px 19px; }
+.details-panel .panel-heading h2 { font-size: 16px; }
+.detail-row { min-height: 39px; }
+.detail-row > span, .detail-row > strong, .detail-row .mono-value, .detail-row a { font-size: 12px; }
+.mini-badge, .system-empty { font-size: 12px; }
+.event-filters button { min-height: 40px; }
+.diagnostics-toggle { min-height: 60px; padding: 16px 19px; }
+.diagnostics-toggle strong { font-size: 14px; }
+.diagnostics-toolbar { font-size: 10px; }
+.diagnostics-toolbar button { min-height: 40px; padding: 8px 11px; font-size: 12px; }
+.diagnostics-content pre { font-size: 12px; }
+.connection-error strong { font-size: 14px; }
+.connection-error p { font-size: 13px; }
+.login-side { padding-top: 34px; padding-bottom: 34px; }
+.login-form-wrap { width: min(420px, 100%); }
+.login-form-wrap h1 { font-size: 36px; }
+.login-form-wrap > p { font-size: 15px; }
+.login-form-wrap label { margin-bottom: 8px; font-size: 14px; }
+.login-form-wrap input { height: 50px; margin-bottom: 18px; padding: 0 14px; border-radius: 10px; font-size: 16px; }
+.login-submit { min-height: 50px; border-radius: 10px; font-size: 15px; }
+.login-security { font-size: 12px; line-height: 1.55; }
+.login-back-link { min-height: 44px; margin-top: 12px; display: inline-flex; align-items: center; gap: 7px; color: #a9d8b5; font-size: 13px; text-decoration: none; }
+.login-back-link:hover { color: #d3f0d7; text-decoration: underline; text-underline-offset: 3px; }
+.login-art-caption, .login-copyright { font-size: 10px; }
+.auth-loading { font-size: 15px; }
+.control-setup-message { padding: 22px; }
+.control-setup-message h2 { margin: 0 0 8px; font-size: 21px; }
+.control-setup-message p { margin: 0; color: var(--muted); font-size: 14px; }
+.drawer-account { margin-top: 18px; }
+
+@media (max-width: 900px) {
+  .sidebar { width: 220px; }
+  .main-area { margin-left: 220px; }
+  .page-content { padding-right: 28px; padding-left: 28px; }
+  .topbar { padding-right: 28px; padding-left: 28px; }
+}
+
+@media (max-width: 650px) {
+  .sidebar { display: none; }
+  .main-area { margin-left: 0; }
+  .topbar { height: 60px; padding-right: 14px; padding-left: 12px; }
+  .breadcrumb { gap: 7px; font-size: 10px; }
+  .breadcrumb strong { font-size: 13px; }
+  .wib-clock { font-size: 11px; }
+  .page-content { min-height: calc(100vh - 60px); padding: 23px 16px 94px; }
+  .page-heading { min-height: 0; align-items: flex-start; flex-wrap: wrap; margin-bottom: 20px; gap: 8px; }
+  .page-heading h1 { margin: 7px 0 4px; font-size: 29px; }
+  .page-heading p { font-size: 14px; }
+  .page-heading > .health-pill { margin-top: 0; font-size: 10px; }
+  .hero-card { min-height: 244px; }
+  .hero-copy { width: 100%; padding: 23px 19px; }
+  .hero-copy h2 { margin-top: 19px; font-size: 29px; }
+  .hero-copy > p { max-width: 82%; font-size: 13px; }
+  .hero-facts { margin-top: 18px; font-size: 12px; }
+  .hero-meta { font-size: 9px; }
+  .section-title-row h2 { font-size: 20px; }
+  .section-aside { font-size: 10px; }
+  .metrics-grid { gap: 10px; }
+  .sensor-card { min-height: 168px; padding: 13px 11px; }
+  .icon-tile { width: 32px; height: 32px; }
+  .card-top { gap: 6px; }
+  .card-kicker, .card-status { font-size: 9px; }
+  .sensor-reading { margin-top: 18px; font-size: 31px; }
+  .sensor-secondary { font-size: 11px; }
+  .sensor-footnote { font-size: 10px; }
+  .trend-panel, .activity-panel { padding: 15px 13px; }
+  .panel-heading { gap: 8px; }
+  .panel-heading h2 { font-size: 15px; }
+  .panel-heading .eyebrow { font-size: 9px; }
+  .text-link { font-size: 11px; }
+  .chart-empty strong, .activity-empty strong { font-size: 12px; }
+  .chart-empty p, .activity-empty > span { font-size: 11px; }
+  .event-copy strong { font-size: 12px; }
+  .event-copy span, .event-row time { font-size: 10px; }
+  .page-footer { font-size: 10px; }
+  .bottom-nav { min-height: calc(70px + env(safe-area-inset-bottom)); }
+  .bottom-nav-link { min-height: 48px; gap: 5px; font-size: 10px; }
+  .control-disabled-banner { padding: 15px 13px; }
+  .control-disabled-banner strong { font-size: 14px; }
+  .control-disabled-banner p, .safety-note p { font-size: 12px; }
+  .control-card { min-height: 0; padding: 17px 15px; }
+  .control-card h2 { font-size: 20px; }
+  .button-row { gap: 8px; }
+  .button-row button, .control-form-row > button, .secondary-control, .pump-on-button, .pump-off-button { min-height: 46px; font-size: 12px; }
+  .control-form-row { align-items: end; }
+  .control-form-row label { font-size: 11px; }
+  .control-form-row input { min-height: 46px; }
+  .history-summary { grid-template-columns: 1fr 1fr; gap: 9px; }
+  .history-range { grid-column: 1 / -1; justify-self: start; }
+  .history-range button, .event-filters button { min-height: 44px; font-size: 11px; }
+  .chart-legend { font-size: 9px; }
+  .history-empty > strong { font-size: 14px; }
+  .history-empty > p { padding: 0 12px; font-size: 12px; }
+  .history-empty-meta span { font-size: 8px; }
+  .device-card { padding: 13px; }
+  .device-card h2 { font-size: 14px; }
+  .device-card p, .device-health { font-size: 10px; }
+  .detail-row { min-height: 42px; }
+  .detail-row > span, .detail-row > strong, .detail-row .mono-value, .detail-row a { font-size: 11px; }
+  .event-filters button { padding: 7px; }
+  .setup-note { font-size: 11px; }
+  .login-art { min-height: 150px; height: 150px; }
+  .login-side { min-height: calc(100vh - 150px); padding: 18px 22px 22px; }
+  .login-form-wrap { margin: 22px auto; }
+  .login-form-wrap h1 { font-size: 30px; }
+  .login-form-wrap > p { font-size: 14px; }
+  .login-form-wrap input, .login-submit { min-height: 48px; }
+}
+
+@media (max-width: 380px) {
+  .topbar { padding-right: 9px; padding-left: 8px; }
+  .mobile-menu-button { margin-right: 0; }
+  .breadcrumb { gap: 5px; font-size: 9px; }
+  .breadcrumb strong { font-size: 12px; }
+  .topbar-actions { gap: 2px; }
+  .wib-clock { gap: 4px; font-size: 10px; }
+  .page-content { padding-right: 12px; padding-left: 12px; }
+  .hero-copy { padding-right: 13px; padding-left: 14px; }
+  .hero-copy h2 { font-size: 26px; }
+  .hero-copy > p { max-width: 85%; font-size: 12px; }
+  .hero-facts { gap: 8px; font-size: 11px; }
+  .metrics-grid { gap: 8px; }
+  .sensor-card { padding-right: 8px; padding-left: 8px; }
+  .card-kicker, .card-status { font-size: 8px; }
+  .sensor-footnote { font-size: 9px; }
+}
 button:disabled { cursor: not-allowed; opacity: .56; }
 .offline-banner, .stop-banner { margin: 12px 40px 0; padding: 11px 14px; display: flex; align-items: center; gap: 10px; border: 1px solid #6a5940; border-radius: 9px; background: #211e15; color: #dec68d; font-size: 10px; }
 .offline-banner { border-color: #445749; background: #142019; color: #a9c5b0; }

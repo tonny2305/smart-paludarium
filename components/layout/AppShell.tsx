@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import {
-  Activity, AlertTriangle, ChevronDown, Cpu, Leaf, LogOut, Menu, Moon, Settings2, Sun, Waves, Wifi, X,
+  Activity, AlertTriangle, ChevronDown, Cpu, Leaf, LogIn, LogOut, Menu, Moon, Settings2, Sun, Waves, Wifi, X,
 } from 'lucide-react'
 import { useAuth } from '@/providers/AuthProvider'
 import { usePaludarium } from '@/providers/PaludariumProvider'
@@ -78,7 +78,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <nav aria-label="Navigasi utama" className="side-nav">{navigation('nav-link')}</nav>
         <div className="sidebar-bottom">
           <div className="connection-mini"><span className={`tiny-dot ${health === 'fresh' && browserOnline ? 'green' : health === 'stale' ? 'amber' : ''}`} /><div><span className="connection-title">Perangkat</span><span className="connection-sub">{!browserOnline ? 'Browser offline' : health === 'fresh' ? 'Terhubung' : health === 'stale' ? 'Data tertunda' : health === 'offline' ? 'Offline' : 'Belum terhubung'}</span></div><ChevronDown size={14} /></div>
-          <button className="user-chip" onClick={() => void handleLogout()} aria-label="Keluar dari akun"><span className="avatar">{user?.email?.[0]?.toUpperCase() || 'P'}</span><span className="user-copy"><strong>{user?.email || 'Pemilik'}</strong><small>Owner</small></span><LogOut size={15} /></button>
+          {user
+            ? <button className="user-chip" onClick={() => void handleLogout()} aria-label="Keluar dari akun"><span className="avatar">{user.email?.[0]?.toUpperCase() || 'P'}</span><span className="user-copy"><strong>{user.email || 'Pemilik'}</strong><small>Pemilik · Keluar</small></span><LogOut size={17} /></button>
+            : <Link className="user-chip" href="/login"><span className="avatar"><LogIn size={17} /></span><span className="user-copy"><strong>Masuk untuk kontrol</strong><small>Dashboard tetap publik</small></span><LogIn size={17} /></Link>}
         </div>
       </aside>
       {mobileMenu && <button className="mobile-backdrop" aria-label="Tutup navigasi" onClick={() => setMobileMenu(false)} />}
@@ -95,7 +97,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className="page-content">{children}</div>
         <nav className="bottom-nav" aria-label="Navigasi mobile">{navigation('bottom-nav-link')}</nav>
       </main>
-      {mobileMenu && <nav className="mobile-drawer" aria-label="Navigasi"><div className="mobile-drawer-head"><div className="brand-lockup"><span className="brand-mark"><Leaf size={20} /></span><span><strong>paludarium</strong><small>CONTROL CENTER</small></span></div><button className="icon-button" onClick={() => setMobileMenu(false)} aria-label="Tutup"><X size={18} /></button></div>{navigation('nav-link')}</nav>}
+      {mobileMenu && <nav className="mobile-drawer" aria-label="Navigasi"><div className="mobile-drawer-head"><div className="brand-lockup"><span className="brand-mark"><Leaf size={20} /></span><span><strong>paludarium</strong><small>CONTROL CENTER</small></span></div><button className="icon-button" onClick={() => setMobileMenu(false)} aria-label="Tutup"><X size={18} /></button></div>{navigation('nav-link')}{user
+        ? <button className="user-chip drawer-account" onClick={() => void handleLogout()}><span className="avatar">{user.email?.[0]?.toUpperCase() || 'P'}</span><span className="user-copy"><strong>{user.email || 'Pemilik'}</strong><small>Keluar dari akun</small></span><LogOut size={17} /></button>
+        : <Link className="user-chip drawer-account" href="/login" onClick={() => setMobileMenu(false)}><span className="avatar"><LogIn size={17} /></span><span className="user-copy"><strong>Masuk untuk kontrol</strong><small>Dashboard tetap publik</small></span><LogIn size={17} /></Link>}</nav>}
     </div>
   )
 }
